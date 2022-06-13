@@ -31,7 +31,7 @@ ips = [x[0] for x in ip_list]
 def port_scanner(ips):
     for ip in ips:
         scanner = nmap.PortScanner()
-        scanner.scan(ip, '1-1024')
+        scanner.scan(ip, '1-1024', arguments='-T5')
         for host in scanner.all_hosts():
             print('\t----------------------------------------')
             print('\n\tHost : %s (%s)' % (host, scanner[host].hostname()))
